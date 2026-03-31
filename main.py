@@ -46,6 +46,9 @@ while True:
         
     elif seleccion1 == 2:
         print("Secundaria")
+        while True:
+            operadoresAux = random.choice(operadores)
+            
     elif seleccion1 == 3:
         print("preparatoria")
     else:
