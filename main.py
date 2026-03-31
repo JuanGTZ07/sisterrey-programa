@@ -46,8 +46,54 @@ while True:
         
     elif seleccion1 == 2:
         print("Secundaria")
-        while True:
-            operadoresAux = random.choice(operadores)
+       
+         while True:
+            tipo = random.randint(1, 3)
+
+            # 1 = operación combinada
+            # 2 = resultado negativo
+            # 3 = fracción (división)
+
+            if tipo == 1:
+                # Operación combinada simple
+                a = random.randint(1, 20)
+                b = random.randint(1, 10)
+                c = random.randint(1, 10)
+
+                simbolo1 = random.choice(["+", "-"])
+                simbolo2 = random.choice(["*", "/"])
+
+                if simbolo2 == "*":
+                    correct = a + b * c if simbolo1 == "+" else a - b * c
+                else:
+                    c = random.randint(1, 10)
+                    correct = a + round(b / c, 2) if simbolo1 == "+" else a - round(b / c, 2)
+                    correct = round(correct, 2)
+
+                print(f"{a} {simbolo1} {b} {simbolo2} {c}")
+
+            elif tipo == 2:
+                # Resultado negativo
+                a = random.randint(1, 20)
+                b = random.randint(a + 1, a + 20)
+
+                correct = a - b
+                print(f"{a} - {b}")
+
+            else:
+                # Fracción simple (división)
+                a = random.randint(1, 9)
+                b = random.randint(2, 9)
+
+                correct = round(a / b, 2)
+                print(f"{a}/{b}")
+
+            result = float(input("Indique el resultado (2 decimales si aplica)\n"))
+
+            if result == correct:
+                print("correcto!")
+            else:
+                print(f"incorrecto! La respuesta era {correct}")
             
     elif seleccion1 == 3:
         print("preparatoria")
