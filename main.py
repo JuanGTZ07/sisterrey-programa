@@ -11,39 +11,38 @@ while True:
         
     elif seleccion1 == 1:
         print("Primaria")
-        part1 = random.randint(1,50)
-        part2 = random.randint(1,50)
 
-        operadoresAux = random.choice(operadores)
-        while operadoresAux == 5 or operadoresAux == 6:
+        while True:
             operadoresAux = random.choice(operadores)
-        if operadoresAux == 1:
-            simbolo = "+"
-            part1 = random.randint(1,100)
-            part2 = random.randint(1,100)
-            correct = part1 + part2
-        elif operadoresAux == 2:
-            simbolo = "-"
-            part1 = random.randint(1,100)
-            part2 = random.randint(1,100)
-            correct = part1 - part2
-        elif operadoresAux == 3:
-            simbolo = "/"
-            part1 = random.randint(1,20)
-            part2 = random.randint(1,20)
-            correct = round(part1 / part2, 2)
-        elif operadoresAux == 4:
-            simbolo = "*"
-            part1 = random.randint(1,10)
-            part2 = random.randint(1,10)
-            correct = part1*part2
-            
-        print(f"{part1}{simbolo}{part2}")   
-        result = float(input("Indique el resultado\n"))
-        if result == correct:
-            print("correcto!")
-        else:
-            print("incorrecto!")
+            while operadoresAux == 5 or operadoresAux == 6:
+                operadoresAux = random.choice(operadores)
+            if operadoresAux == 1:
+                simbolo = "+"
+                part1 = random.randint(1,100)
+                part2 = random.randint(1,100)
+                correct = part1 + part2
+            elif operadoresAux == 2:
+                simbolo = "-"
+                part1 = random.randint(1,100)
+                part2 = random.randint(1,100)
+                correct = part1 - part2
+            elif operadoresAux == 3:
+                simbolo = "/"
+                part1 = random.randint(1,20)
+                part2 = random.randint(1,20)
+                correct = round(part1 / part2, 2)
+            elif operadoresAux == 4:
+                simbolo = "*"
+                part1 = random.randint(1,10)
+                part2 = random.randint(1,10)
+                correct = part1*part2
+                
+            print(f"{part1}{simbolo}{part2}")   
+            result = float(input("Indique el resultado\n"))
+            if result == correct:
+                print("correcto!")
+            else:
+                print("incorrecto!")
         
     elif seleccion1 == 2:
         print("Secundaria")
