@@ -100,6 +100,7 @@ while True:
 
     else:
         #Fer
+        Pnfu = [0, 1, 2, 3, 4, 5, 6, 7]
         print("Nivel de dificultad: \n UNIVERSIDAD:")
         print("Estos son los temas que verás: \n Integrales \n Área de gráficas \n ")
         backtrackdec = int(input("Quieres continuar o deseas intentar otra dificultad? \n 0: Intentar otro nivel \n 1:Intentaré este nivel\n"))
@@ -110,10 +111,32 @@ while True:
             else:
                 break
         if backtrackdec == 0:
-            print("Reinicie el programa para intentar otra vez:") #In progress
+            print("Reinicie el programa para intentar otra vez (In progress):") #In progress
 
         elif backtrackdec == 1:
-            print("Prepárate...\n Primer tema: Integrales:")
+            print("Prepárate...\n Primer tema: Integrales (Nivel 1): \n Calcula:\n")
+            #Nivel 1:
+            lvl4 = 1
+            #while lvl4 == 1:
+            indef = "x"
+            exp = random.randint(1, 6)
+            correct = (1/(exp+1))
+            print(f"{1}/{exp+1}") 
+
+
+
+
+
+
+
+
+
+
+
+
+            #big = random.randint(1, 6)
+            #small = random.randint(-5,)
+
 
 
 
