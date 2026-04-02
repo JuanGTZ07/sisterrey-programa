@@ -3,7 +3,7 @@ import random
 operadores = [1,2,3,4,5,6]
 # 1 = suma|2 = resta|3 = divison|4 = multiplicacion|5 = raiz|6 = exponente
 
-print("Facil - 1\nIntermedio - 2\nDificil - 3\nUniversidad - 4\n")
+print("Facil - 1\secundaria - 2\nDificil - 3\nUniversidad - 4\n")
 while True:
     seleccion1 = int(input("Seleccione el nivel de dificultad\n"))
     if seleccion1 < 1 or seleccion1 > 4:
