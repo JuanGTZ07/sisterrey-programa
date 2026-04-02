@@ -47,7 +47,7 @@ while True:
     elif seleccion1 == 2:
         print("Secundaria")
        
-         while True:
+        while True:
             tipo = random.randint(1, 3)
 
             # 1 = operación combinada
@@ -97,5 +97,26 @@ while True:
             
     elif seleccion1 == 3:
         print("preparatoria")
+
     else:
-        print("universidad")
+        #Fer
+        print("Nivel de dificultad: \n UNIVERSIDAD:")
+        print("Estos son los temas que verás: \n Integrales \n Área de gráficas \n ")
+        backtrackdec = int(input("Quieres continuar o deseas intentar otra dificultad? \n 0: Intentar otro nivel \n 1:Intentaré este nivel\n"))
+        while True:
+            backtrackdec = int(input("Quieres continuar o deseas intentar otra dificultad? \n 0: Intentar otro nivel \n 1:Intentaré este nivel\n Elija una opción de las indicadas\n"))
+            if backtrackdec < 0 or backtrackdec > 1:
+                print("Elija una opción de las indicadas por favor")
+            else:
+                break
+        if backtrackdec == 0:
+            print("Reinicie el programa para intentar otra vez:") #In progress
+
+        elif backtrackdec == 1:
+            print("Prepárate...\n Primer tema: Integrales:")
+
+
+
+
+
+        
