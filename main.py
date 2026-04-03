@@ -96,10 +96,72 @@ while True:
                 print(f"incorrecto! La respuesta era {correct}")
             
     elif seleccion1 == 3:
-        print("preparatoria")
+        #Fer V
+        print("Nivel de dificultad: PREPARATORIA")
+        print("Estos son los temas que verás: \n Ecuaciones algebraicas \n Desigualdades e igualdades \n Derivadas ")
+        while True:
+            backtrackdec = int(input("Quieres continuar o deseas intentar otra dificultad? \n 0: Intentar otro nivel \n 1:Intentaré este nivel\n Elija una opción de las indicadas\n"))
+            if backtrackdec < 0 or backtrackdec > 1:
+                print("Elija una opción de las indicadas por favor")
+            else:
+                break
+        if backtrackdec == 0:
+            print("Se reiniciará el programa para intentar otra vez:") 
+        elif backtrackdec == 1:
+            print("Prepárate...\n Primer tema: Ecuaciones algebraicas (Binomios al cuadrado perfecto) (Nivel 1): \n Calcula el valor de 'x':\n")
 
+            #Nivel 1: Ecuaciones algebraicas
+            for i in range(3):
+                cInprocess = random.randint(2, 8)
+                c = cInprocess**2
+                b = cInprocess*2
+                print(f"y = x²+{b}x+{c}")
+                correct = cInprocess * -1
+                while True:
+                    userxAnswer = int(input("¿Cuál es el valor de x??"))
+                    if userxAnswer != correct:
+                        print("\nRespuesta incorrecta, intenta otra vez\n")
+                    elif userxAnswer == correct:
+                        print("\nCorrecto! avanza al siguiente ejercicio\n")
+                        break
+            #Nivel 2: Desigualdades e igualdades:
+            for i in range(3):
+                operators = [0, 1]
+                x = random.randint(1, 20)
+                operator = random.choice(operators)
+                y = random.randint(1, 75)
+                randomNum = random.randint(10, 75 )
+                if operator == 1:
+                    symbol = "+"
+                    compare = x + y
+                    if compare < randomNum:
+                        correct = 2
+                    elif compare > randomNum:
+                        correct = 1
+                    elif compare == randomNum:
+                        correct = 3 
+                elif operator == 0:
+                    symbol = "-"
+                    compare = x - y
+                    if compare < randomNum:
+                        correct = 2
+                    elif compare > randomNum:
+                        correct = 1
+                    elif compare == randomNum:
+                        correct = 3 
+
+                print(f"{x}{symbol}{y} ?? {randomNum}")
+                
+                while True:
+                    DesAnswer = int(input("Escribe '1' si la parte de la izquierda es mayor que la parte derecha\nEscribe '2' si la parte izquierda es menor que la parte derecha\nO 3 si las dos partes son iguales"))
+                    if DesAnswer != correct:
+                        print("Respuesta incorrecta, checa bien el problema")
+                    elif DesAnswer == correct:
+                        print("\nCorrecto! intenta el siguiente ejercicio\n")
+                        break
+            #Nivel 3: Derivadas:
     else:
-        #Fer4
+        #Fer V
         # Pnfu = [0, 1, 2, 3, 4, 5, 6, 7] Won't be useful I think
         print("Nivel de dificultad: \n UNIVERSIDAD:")
         print("Estos son los temas que verás: \n Integrales indefinidas \n Área de gráficas \n ")
@@ -116,7 +178,7 @@ while True:
         elif backtrackdec == 1:
             print("Prepárate...\n Primer tema: Integrales indefinidas (Nivel 1): \n Calcula:\n")
 
-            #Nivel 1:
+            #Nivel 1: Integrales indefinidas
             for i in range(3):
                 exp = random.randint(1, 5)
                 print("Completa la respuesta, está en este orden (Lo que está en paréntesis te pediremos):")
