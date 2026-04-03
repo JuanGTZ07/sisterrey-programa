@@ -99,11 +99,11 @@ while True:
         print("preparatoria")
 
     else:
-        #Fer
-        Pnfu = [0, 1, 2, 3, 4, 5, 6, 7]
+        #Fer4
+        # Pnfu = [0, 1, 2, 3, 4, 5, 6, 7] Won't be useful I think
         print("Nivel de dificultad: \n UNIVERSIDAD:")
-        print("Estos son los temas que verás: \n Integrales \n Área de gráficas \n ")
-        backtrackdec = int(input("Quieres continuar o deseas intentar otra dificultad? \n 0: Intentar otro nivel \n 1:Intentaré este nivel\n"))
+        print("Estos son los temas que verás: \n Integrales indefinidas \n Área de gráficas \n ")
+        
         while True:
             backtrackdec = int(input("Quieres continuar o deseas intentar otra dificultad? \n 0: Intentar otro nivel \n 1:Intentaré este nivel\n Elija una opción de las indicadas\n"))
             if backtrackdec < 0 or backtrackdec > 1:
@@ -111,17 +111,41 @@ while True:
             else:
                 break
         if backtrackdec == 0:
-            print("Reinicie el programa para intentar otra vez (In progress):") #In progress
+            print("Se reiniciará el programa para intentar otra vez:") 
 
         elif backtrackdec == 1:
-            print("Prepárate...\n Primer tema: Integrales (Nivel 1): \n Calcula:\n")
+            print("Prepárate...\n Primer tema: Integrales indefinidas (Nivel 1): \n Calcula:\n")
+
             #Nivel 1:
-            lvl4 = 1
-            #while lvl4 == 1:
-            indef = "x"
-            exp = random.randint(1, 6)
-            correct = (1/(exp+1))
-            print(f"{1}/{exp+1}") 
+            for i in range(3):
+                exp = random.randint(1, 5)
+                print("Completa la respuesta, está en este orden (Lo que está en paréntesis te pediremos):")
+                print("(1/(denominador))x^(exponente final) + C \n **La C es para todos las integrales indefinidas**\n\n")
+
+                print(f"∫x^{exp}dx")
+                denIntegral = exp + 1 
+                expIntegral = exp + 1
+                while True:
+                    denR = int(input("Escribe el denominador de la integral: \n"))
+                    if denR != denIntegral:
+                        print("Eso es incorrecto, intenta otra vez\n Recuerda la fórmula: (1/(denominador))x^(exponente final) + C\n Tip: Al denominador se le suma 1 siempre")
+                    else:
+                        print("Es correcto!")
+                        break
+
+                while True:
+                    expR = int(input("Escribe el exponente final de la integral: \n"))
+                    if expR != expIntegral:
+                        print("Eso es incorrecto, intenta otra vez\n Recuerda la fórmula: (1/(denominador))x^(exponente final) + C\n Tip: Al exponente de la integral se le suma 1 siempre")
+                    else:
+                        print("Es correcto!")
+                        break
+            
+            #Nivel 2:
+            #for i in range(3):
+
+                    
+
 
 
 
