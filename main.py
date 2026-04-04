@@ -100,16 +100,21 @@ while True:
         print("Nivel de dificultad: PREPARATORIA")
         print("Estos son los temas que verás: \n Ecuaciones algebraicas \n Desigualdades e igualdades \n Derivadas ")
         while True:
-            backtrackdec = int(input("Quieres continuar o deseas intentar otra dificultad? \n 0: Intentar otro nivel \n 1:Intentaré este nivel\n Elija una opción de las indicadas\n"))
-            if backtrackdec < 0 or backtrackdec > 1:
-                print("Elija una opción de las indicadas por favor")
-            else:
-                break
+            options = [0, 1]
+            try:
+                backtrackdec = int(input("Quieres continuar o deseas intentar otra dificultad? \n 0: Intentar otro nivel \n 1:Intentaré este nivel\n Elija una opción de las indicadas\n"))
+                if backtrackdec in options:   
+                    if backtrackdec < 0 or backtrackdec > 1:
+                        print("Elija una opción de las indicadas por favor")
+                    else:
+                        break
+            except ValueError:
+                print("Escribe una opción válida")
         if backtrackdec == 0:
             print("Se reiniciará el programa para intentar otra vez:") 
+
         elif backtrackdec == 1:
             print("Prepárate...\n Primer tema: Ecuaciones algebraicas (Binomios al cuadrado perfecto) (Nivel 1): \n Calcula el valor de 'x':\n")
-
             #Nivel 1: Ecuaciones algebraicas
             for i in range(3):
                 cInprocess = random.randint(2, 8)
@@ -118,12 +123,15 @@ while True:
                 print(f"y = x²+{b}x+{c}")
                 correct = cInprocess * -1
                 while True:
-                    userxAnswer = int(input("¿Cuál es el valor de x??"))
-                    if userxAnswer != correct:
-                        print("\nRespuesta incorrecta, intenta otra vez\n")
-                    elif userxAnswer == correct:
-                        print("\nCorrecto! avanza al siguiente ejercicio\n")
-                        break
+                    try:
+                        userxAnswer = int(input("¿Cuál es el valor de x??"))
+                        if userxAnswer != correct:
+                            print("\nRespuesta incorrecta, intenta otra vez\n")
+                        elif userxAnswer == correct:
+                            print("\nCorrecto! avanza al siguiente ejercicio\n")
+                            break
+                    except ValueError:
+                        print("Escribe una opción válida")
             #Nivel 2: Desigualdades e igualdades:
             for i in range(3):
                 operators = [0, 1]
@@ -153,25 +161,65 @@ while True:
                 print(f"{x}{symbol}{y} ?? {randomNum}")
                 
                 while True:
-                    DesAnswer = int(input("Escribe '1' si la parte de la izquierda es mayor que la parte derecha\nEscribe '2' si la parte izquierda es menor que la parte derecha\nO 3 si las dos partes son iguales"))
-                    if DesAnswer != correct:
-                        print("Respuesta incorrecta, checa bien el problema")
-                    elif DesAnswer == correct:
-                        print("\nCorrecto! intenta el siguiente ejercicio\n")
-                        break
+                    options = [1, 2, 3]
+                    try:
+                        DesAnswer = int(input("Escribe '1' si la parte de la izquierda es mayor que la parte derecha\nEscribe '2' si la parte izquierda es menor que la parte derecha\nO 3 si las dos partes son iguales"))
+                        if DesAnswer in options:
+                            if DesAnswer != correct:
+                                print("Respuesta incorrecta, checa bien el problema")
+                            elif DesAnswer == correct:
+                                print("\nCorrecto! intenta el siguiente ejercicio\n")
+                                break
+                        else:
+                            print("Escribe una opción válida (1, 2, 3)")
+                    except ValueError:
+                        print("Escribe una opción válida")
             #Nivel 3: Derivadas:
+            for i in range(3):
+                exp = random.randint(1, 5)
+                print("Responderás con el coeficiente final al derivar y el exponenete final de x al derivar igualmente\nEsta es la manera de la que se escribe una derivada:")
+                print(f"D(x^{exp})")
+                print("Esta es la fórmula para derivar" f"(exponente inicial)*x^(exponente inicial - 1)")
+                coefRich = exp
+                expRich = exp - 1
+                
+                while True:
+                    try:
+                        coef = int(input("¿Cuál es el coeficiente de la derivada?"))
+                        if coef != coefRich:
+                            print("Respuesta incorrecta, intenta otra vez")
+                        elif coef == coefRich:
+                            print("\nCorrecto! avanza con el exponente")
+                            break
+                    except ValueError:
+                        print("Escribe una opción válida")
+                while True:
+                    try:
+                        expAnswer = int(input("¿Cuál sería el exponente ahora después de derivar?"))
+                        if expAnswer != expRich:
+                            print("Respuesta incorrecta, intenta otra vez")
+                        elif expAnswer == expRich:
+                            print("\nCorrecto! ahora puedes intentar otra dificultad\n")
+                            break
+                    except ValueError:
+                        print("Escribe una opción válida")
     else:
         #Fer V
-        # Pnfu = [0, 1, 2, 3, 4, 5, 6, 7] Won't be useful I think
         print("Nivel de dificultad: \n UNIVERSIDAD:")
-        print("Estos son los temas que verás: \n Integrales indefinidas \n Área de gráficas \n ")
+        print("Estos son los temas que verás: \n Integrales indefinidas \n Integrales definidas \n ")
         
         while True:
-            backtrackdec = int(input("Quieres continuar o deseas intentar otra dificultad? \n 0: Intentar otro nivel \n 1:Intentaré este nivel\n Elija una opción de las indicadas\n"))
-            if backtrackdec < 0 or backtrackdec > 1:
-                print("Elija una opción de las indicadas por favor")
-            else:
-                break
+            options = [0, 1]
+            try:
+
+                backtrackdec = int(input("Quieres continuar o deseas intentar otra dificultad? \n 0: Intentar otro nivel \n 1:Intentaré este nivel\n Elija una opción de las indicadas\n"))
+                if backtrackdec in options:   
+                    if backtrackdec < 0 or backtrackdec > 1:
+                        print("Elija una opción de las indicadas por favor")
+                    else:
+                        break
+            except ValueError:
+                print("Escribe una opción válida")
         if backtrackdec == 0:
             print("Se reiniciará el programa para intentar otra vez:") 
 
@@ -188,40 +236,82 @@ while True:
                 denIntegral = exp + 1 
                 expIntegral = exp + 1
                 while True:
-                    denR = int(input("Escribe el denominador de la integral: \n"))
-                    if denR != denIntegral:
-                        print("Eso es incorrecto, intenta otra vez\n Recuerda la fórmula: (1/(denominador))x^(exponente final) + C\n Tip: Al denominador se le suma 1 siempre")
-                    else:
-                        print("Es correcto!")
-                        break
+                    try:
+                        denR = int(input("Escribe el denominador de la integral: \n"))
+                        if denR != denIntegral:
+                            print("Eso es incorrecto, intenta otra vez\n Recuerda la fórmula: (1/(denominador))x^(exponente final) + C\n Tip: Al denominador se le suma 1 siempre")
+                        else:
+                            print("Es correcto!")
+                            break
+                    except ValueError:
+                        print("Escribe una opción válida")
 
                 while True:
-                    expR = int(input("Escribe el exponente final de la integral: \n"))
-                    if expR != expIntegral:
-                        print("Eso es incorrecto, intenta otra vez\n Recuerda la fórmula: (1/(denominador))x^(exponente final) + C\n Tip: Al exponente de la integral se le suma 1 siempre")
-                    else:
-                        print("Es correcto!")
-                        break
+                    try:
+                        expR = int(input("Escribe el exponente final de la integral: \n"))
+                        if expR != expIntegral:
+                            print("Eso es incorrecto, intenta otra vez\n Recuerda la fórmula: (1/(denominador))x^(exponente final) + C\n Tip: Al exponente de la integral se le suma 1 siempre")
+                        else:
+                            print("Es correcto!")
+                            break
+                    except ValueError:
+                        print("Escribe una opción válida")
             
-            #Nivel 2:
-            #for i in range(3):
+            #Nivel 2: Integrales definidas
+            for i in range(3):
+                exp = random.randint(1, 5)
+                integralMax = random.randint(1, 3)
+                integralMin = random.randint(1, 3)
+                while True:
+                    if integralMax == integralMin:
+                        integralMin = random.randint(1, 3)
+                        if integralMax > integralMin:
+                            break
+                        elif integralMax < integralMin:
+                            aux = integralMax + integralMin
+                            integralMax = aux - integralMax
+                            integralMin = aux - integralMin
+                    elif integralMax > integralMin:
+                        break
+                    elif integralMax < integralMin:
+                        aux = integralMax + integralMin
+                        integralMax = aux - integralMax
+                        integralMin = aux - integralMin
+                print("\nPara calcular una integral definida, se necesita primero integrar el integrando y después multiplicar el límite superior por este;\n y después hacer lo mismo con el límite inferior, pero al final restar el límite superior del límite inferior. ")
+                print("Fórmula: "f"∫(límite inferior a límite superior) de x^y dx" )
+                print("[(límite superior) * ∫x^y dx] - [(límite inferior) * ∫x^y dx]")
+                print("Calcula la integral definida:\n" f"(∫{integralMin} a {integralMax} de (x^{exp}dx)")
+                #Integral inicial:
 
-                    
-
-
-
-
-
-
-
-
-
-
-
-
-
-            #big = random.randint(1, 6)
-            #small = random.randint(-5,)
+                print("Calcula primero la integral: ")
+                denIntegral = exp + 1 
+                expIntegral = exp + 1
+                while True:
+                    try:
+                        denR = int(input("Escribe el denominador de la integral: \n"))
+                        if denR != denIntegral:
+                            print("Eso es incorrecto, intenta otra vez\n Recuerda la fórmula: (1/(denominador))x^(exponente final)\n Tip: Al denominador se le suma 1 siempre")
+                        else:
+                            print("Es correcto!")
+                            break
+                    except ValueError:
+                        print("Escribe una opción válida")
+                while True:
+                    try:
+                        expR = int(input("Escribe el exponente final de la integral: \n"))
+                        if expR != expIntegral:
+                            print("Eso es incorrecto, intenta otra vez\n Recuerda la fórmula: (1/(denominador))x^(exponente final)\n Tip: Al exponente de la integral se le suma 1 siempre")
+                        else:
+                            print("Es correcto!")
+                            break
+                    except ValueError:
+                        print("Escribe una opción válida")
+                #Límites de la integral después:
+                while True:
+                    try:
+                        limiteSUPIntegral = float(input(""))
+                    except ValueError:
+                        print("Escribe una opción válida")
 
 
 
