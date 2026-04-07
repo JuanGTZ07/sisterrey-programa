@@ -7,13 +7,24 @@ pts = 0
 tiempo = []
 
 print("Primaria - 1\nSecundaria - 2\nPreparatoria - 3\nUniversidad - 4\nSalir - 0\n")
+
 while True:
     print(f"\n--- Pts ACTUALES: {pts} ---")
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+    seleccion1 = int(input("Seleccione el nivel de dificultad\n"))
+=======
+>>>>>>> Stashed changes
     try:
         seleccion1 = int(input("Seleccione el nivel de dificultad\n"))
     except ValueError:
         print("Seleccione un número válido")
         continue
+<<<<<<< Updated upstream
+=======
+>>>>>>> effc2b71b49f8f86e4588e095c4df8ae03262c95
+>>>>>>> Stashed changes
     if seleccion1 == 0:
         print(f"\nTerminaste con {pts} punto(s).")
         if tiempo:
@@ -25,14 +36,11 @@ while True:
             print(f"Mas rapido: {min(tiempos)}s")
             print(f"Mas lento : {max(tiempos)}s")
         sys.exit()
-
     elif seleccion1 < 0 or seleccion1 > 4:
         print("Seleccione un numero valido")
-
     elif seleccion1 == 1:
         print("Primaria")
         intentos = 5
-
         while True:
             operadoresAux = random.choice(operadores)
             while operadoresAux == 5 or operadoresAux == 6:
@@ -61,6 +69,17 @@ while True:
             pregunta = f"{part1}{simbolo}{part2}"
             print(f"\n{pregunta}")
             inicio = time.time()
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+            result = input("")
+            if result.strip().lower() == "d":
+                print(f"[DEBUG] Respuesta automática: {correct}")
+                result = float(correct)
+            else:
+                result = float(result)
+=======
+>>>>>>> Stashed changes
             try:
                 result = float(input(""))
             except ValueError:
@@ -70,6 +89,10 @@ while True:
                     print("Se acabaron los intentos.")
                     break
                 continue
+<<<<<<< Updated upstream
+=======
+>>>>>>> effc2b71b49f8f86e4588e095c4df8ae03262c95
+>>>>>>> Stashed changes
             elapsed = round(time.time() - inicio, 2)
             tiempo.append((pregunta, elapsed))
             print(f"Tiempo: {elapsed}s")
@@ -83,11 +106,9 @@ while True:
                 if intentos == 0:
                     print("Se acabaron los intentos.")
                     break
-
     elif seleccion1 == 2:
         print("Secundaria")
         intentos = 5
-
         while True:
             tipo = random.randint(1, 3)
 
@@ -109,9 +130,19 @@ while True:
                 a = random.randint(1, 9); b = random.randint(2, 9)
                 correct = round(a / b, 2)
                 pregunta = f"{a}/{b}"
-
             print(f"\n{pregunta}")
             inicio = time.time()
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+            result = input("(2 decimales si aplica)\n")
+            if result.strip().lower() == "d":
+                print(f"[DEBUG] Respuesta automática: {correct}")
+                result = float(correct)
+            else:
+                result = float(result)
+=======
+>>>>>>> Stashed changes
             try:
                 result = float(input("(2 decimales si aplica)\n"))
             except ValueError:
@@ -121,6 +152,10 @@ while True:
                     print("Se acabaron los intentos.")
                     break
                 continue
+<<<<<<< Updated upstream
+=======
+>>>>>>> effc2b71b49f8f86e4588e095c4df8ae03262c95
+>>>>>>> Stashed changes
             elapsed = round(time.time() - inicio, 2)
             tiempo.append((pregunta, elapsed))
             print(f"Tiempo: {elapsed}s")
@@ -134,7 +169,6 @@ while True:
                 if intentos == 0:
                     print("Se acabaron los intentos.")
                     break
-
     elif seleccion1 == 3:
         print("Preparatoria")
         intentos = 3
@@ -160,6 +194,17 @@ while True:
                 correct = float(new_exp)
 
             inicio = time.time()
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+            result = input("")
+            if result.strip().lower() == "d":
+                print(f"[DEBUG] Respuesta automática: {correct}")
+                result = float(correct)
+            else:
+                result = float(result)
+=======
+>>>>>>> Stashed changes
             try:
                 result = float(input(""))
             except ValueError:
@@ -169,6 +214,10 @@ while True:
                     print("Se acabaron los intentos.")
                     break
                 continue
+<<<<<<< Updated upstream
+=======
+>>>>>>> effc2b71b49f8f86e4588e095c4df8ae03262c95
+>>>>>>> Stashed changes
             elapsed = round(time.time() - inicio, 2)
             tiempo.append((pregunta, elapsed))
             print(f"Tiempo: {elapsed}s")
@@ -182,7 +231,6 @@ while True:
                 if intentos == 0:
                     print("Se acabaron los intentos.")
                     break
-
     else:
         print("Universidad")
         intentos = 3
@@ -195,6 +243,19 @@ while True:
                 denIntegral = exp + 1
                 pregunta = f"∫x^{exp}dx = x^{denIntegral}/?? + C"
                 print(f"\n{pregunta}")
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+                correct = float(denIntegral)
+                inicio = time.time()
+                result = input("Denominador: ")
+                if result.strip().lower() == "d":
+                    print(f"[DEBUG] Respuesta automática: {correct}")
+                    result = float(correct)
+                else:
+                    result = float(result)
+=======
+>>>>>>> Stashed changes
                 inicio = time.time()
                 try:
                     result = float(input("Denominador: "))
@@ -207,12 +268,28 @@ while True:
                         break
                     continue
                 #correct = float(denIntegral)
+<<<<<<< Updated upstream
+=======
+>>>>>>> effc2b71b49f8f86e4588e095c4df8ae03262c95
+>>>>>>> Stashed changes
             else:
                 a = random.randint(1, 8)
                 correct = float(2 * a)
                 pregunta = f"lim x→{a} de (x² - {a**2}) / (x - {a})"
                 print(f"\n{pregunta}")
                 inicio = time.time()
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+                result = input("")
+                if result.strip().lower() == "d":
+                    print(f"[DEBUG] Respuesta automática: {correct}")
+                    result = float(correct)
+                else:
+                    result = float(result)
+
+=======
+>>>>>>> Stashed changes
                 try:
                     result = float(input(""))
                 except ValueError:
@@ -222,10 +299,13 @@ while True:
                         print("Se acabaron los intentos.")
                         break
                     continue
+<<<<<<< Updated upstream
+=======
+>>>>>>> effc2b71b49f8f86e4588e095c4df8ae03262c95
+>>>>>>> Stashed changes
             elapsed = round(time.time() - inicio, 2)
             tiempo.append((pregunta, elapsed))
             print(f"Tiempo: {elapsed}s")
-
             if result == correct:
                 print("¡Correcto!")
                 pts += 1
