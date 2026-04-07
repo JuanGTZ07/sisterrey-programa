@@ -9,8 +9,11 @@ tiempo = []
 print("Primaria - 1\nSecundaria - 2\nPreparatoria - 3\nUniversidad - 4\nSalir - 0\n")
 while True:
     print(f"\n--- Pts ACTUALES: {pts} ---")
-    seleccion1 = float(input("Seleccione el nivel de dificultad\n"))
-
+    try:
+        seleccion1 = int(input("Seleccione el nivel de dificultad\n"))
+    except ValueError:
+        print("Seleccione un número válido")
+        continue
     if seleccion1 == 0:
         print(f"\nTerminaste con {pts} punto(s).")
         if tiempo:
@@ -58,7 +61,15 @@ while True:
             pregunta = f"{part1}{simbolo}{part2}"
             print(f"\n{pregunta}")
             inicio = time.time()
-            result = float(input(""))
+            try:
+                result = float(input(""))
+            except ValueError:
+                intentos -= 1
+                print(f"¡INCORRECTO! Te quedan {intentos} intento(s).")
+                if intentos == 0:
+                    print("Se acabaron los intentos.")
+                    break
+                continue
             elapsed = round(time.time() - inicio, 2)
             tiempo.append((pregunta, elapsed))
             print(f"Tiempo: {elapsed}s")
@@ -101,7 +112,15 @@ while True:
 
             print(f"\n{pregunta}")
             inicio = time.time()
-            result = float(input("(2 decimales si aplica)\n"))
+            try:
+                result = float(input("(2 decimales si aplica)\n"))
+            except ValueError:
+                intentos -= 1
+                print(f"¡INCORRECTO! La respuesta era {correct}. Te quedan {intentos} intento(s).")
+                if intentos == 0:
+                    print("Se acabaron los intentos.")
+                    break
+                continue
             elapsed = round(time.time() - inicio, 2)
             tiempo.append((pregunta, elapsed))
             print(f"Tiempo: {elapsed}s")
@@ -141,7 +160,15 @@ while True:
                 correct = float(new_exp)
 
             inicio = time.time()
-            result = float(input(""))
+            try:
+                result = float(input(""))
+            except ValueError:
+                intentos -= 1
+                print(f"¡INCORRECTO! La respuesta era {correct}. Te quedan {intentos} intento(s).")
+                if intentos == 0:
+                    print("Se acabaron los intentos.")
+                    break
+                continue
             elapsed = round(time.time() - inicio, 2)
             tiempo.append((pregunta, elapsed))
             print(f"Tiempo: {elapsed}s")
@@ -166,19 +193,35 @@ while True:
             if tipo == 1:
                 exp = random.randint(1, 5)
                 denIntegral = exp + 1
-                pregunta = f"∫x^{exp}dx = x^{denIntegral}/? + C"
+                pregunta = f"∫x^{exp}dx = x^{denIntegral}/?? + C"
                 print(f"\n{pregunta}")
                 inicio = time.time()
-                result = float(input("Denominador: "))
-                correct = float(denIntegral)
+                try:
+                    result = float(input("Denominador: "))
+                    correct = float(denIntegral)
+                except ValueError:
+                    intentos -= 1
+                    print(f"¡INCORRECTO! La respuesta era {correct}. Te quedan {intentos} intento(s).")
+                    if intentos == 0:
+                        print("Se acabaron los intentos.")
+                        break
+                    continue
+                #correct = float(denIntegral)
             else:
                 a = random.randint(1, 8)
                 correct = float(2 * a)
                 pregunta = f"lim x→{a} de (x² - {a**2}) / (x - {a})"
                 print(f"\n{pregunta}")
                 inicio = time.time()
-                result = float(input(""))
-
+                try:
+                    result = float(input(""))
+                except ValueError:
+                    intentos -= 1
+                    print(f"¡INCORRECTO! La respuesta era {correct}. Te quedan {intentos} intento(s).")
+                    if intentos == 0:
+                        print("Se acabaron los intentos.")
+                        break
+                    continue
             elapsed = round(time.time() - inicio, 2)
             tiempo.append((pregunta, elapsed))
             print(f"Tiempo: {elapsed}s")
