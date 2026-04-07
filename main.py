@@ -1,34 +1,29 @@
-# Juan
 import random
 import sys
 import time
 
 operadores = [1,2,3,4,5,6]
+pts = 0
+tiempo = []
 
-puntos = 0
-historial_tiempo = []
-
-def registrar_tiempo(pregunta, inicio):
-    elapsed = round(time.time() - inicio, 2)
-    historial_tiempo.append((pregunta, elapsed))
-    print(f"Tiempo: {elapsed}s")
-
-def mostrar_resumen():
-    print(f"\nPuntuación final: {puntos}")
-    if historial_tiempo:
-        print("\n--- RESUMEN DE TIEMPOS ---")
-        for i, (pregunta, t) in enumerate(historial_tiempo, 1):
-            print(f"{i}. {pregunta} → {t}s")
-        tiempos = [t for _, t in historial_tiempo]
-        print(f"\nPromedio : {round(sum(tiempos)/len(tiempos), 2)}s")
-        print(f"Más rápida: {min(tiempos)}s")
-        print(f"Más lenta : {max(tiempos)}s")
-
-print("Primaria - 1\nSecundaria - 2\nPreparatoria - 3\nUniversidad - 4\n")
+print("Primaria - 1\nSecundaria - 2\nPreparatoria - 3\nUniversidad - 4\nSalir - 0\n")
 while True:
-    print(f"\n--- PUNTOS ACTUALES: {puntos} ---")
+    print(f"\n--- Pts ACTUALES: {pts} ---")
     seleccion1 = float(input("Seleccione el nivel de dificultad\n"))
-    if seleccion1 < 1 or seleccion1 > 4:
+
+    if seleccion1 == 0:
+        print(f"\nTerminaste con {pts} punto(s).")
+        if tiempo:
+            print("\n--- Tiempos ---")
+            for i, (p, t) in enumerate(tiempo, 1):
+                print(f"{i}. {p} → {t}s")
+            tiempos = [t for _, t in tiempo]
+            print(f"\nPromedio : {round(sum(tiempos)/len(tiempos), 2)}s")
+            print(f"Mas rapido: {min(tiempos)}s")
+            print(f"Mas lento : {max(tiempos)}s")
+        sys.exit()
+
+    elif seleccion1 < 0 or seleccion1 > 4:
         print("Seleccione un numero valido")
 
     elif seleccion1 == 1:
@@ -63,19 +58,20 @@ while True:
             pregunta = f"{part1}{simbolo}{part2}"
             print(f"\n{pregunta}")
             inicio = time.time()
-            result = float(input("Indique el resultado\n"))
-            registrar_tiempo(pregunta, inicio)
+            result = float(input(""))
+            elapsed = round(time.time() - inicio, 2)
+            tiempo.append((pregunta, elapsed))
+            print(f"Tiempo: {elapsed}s")
 
             if result == correct:
                 print("¡Correcto!")
-                puntos += 1
+                pts += 1
             else:
                 intentos -= 1
                 print(f"¡INCORRECTO! Te quedan {intentos} intento(s).")
                 if intentos == 0:
-                    print("GAME OVER.")
-                    mostrar_resumen()
-                    sys.exit()
+                    print("Se acabaron los intentos.")
+                    break
 
     elif seleccion1 == 2:
         print("Secundaria")
@@ -105,23 +101,23 @@ while True:
 
             print(f"\n{pregunta}")
             inicio = time.time()
-            result = float(input("Indique el resultado (2 decimales si aplica)\n"))
-            registrar_tiempo(pregunta, inicio)
+            result = float(input("(2 decimales si aplica)\n"))
+            elapsed = round(time.time() - inicio, 2)
+            tiempo.append((pregunta, elapsed))
+            print(f"Tiempo: {elapsed}s")
 
             if result == correct:
                 print("¡Correcto!")
-                puntos += 1
+                pts += 1
             else:
                 intentos -= 1
                 print(f"¡INCORRECTO! La respuesta era {correct}. Te quedan {intentos} intento(s).")
                 if intentos == 0:
-                    print("GAME OVER.")
-                    mostrar_resumen()
-                    sys.exit()
+                    print("Se acabaron los intentos.")
+                    break
 
     elif seleccion1 == 3:
-        #Fer V
-        print("Nivel de dificultad: PREPARATORIA")
+        print("Preparatoria")
         intentos = 3
 
         while True:
@@ -145,23 +141,23 @@ while True:
                 correct = float(new_exp)
 
             inicio = time.time()
-            result = float(input("Indique el resultado\n"))
-            registrar_tiempo(pregunta, inicio)
+            result = float(input(""))
+            elapsed = round(time.time() - inicio, 2)
+            tiempo.append((pregunta, elapsed))
+            print(f"Tiempo: {elapsed}s")
 
             if result == correct:
                 print("¡Correcto!")
-                puntos += 1
+                pts += 1
             else:
                 intentos -= 1
                 print(f"¡INCORRECTO! La respuesta era {correct}. Te quedan {intentos} intento(s).")
                 if intentos == 0:
-                    print("GAME OVER.")
-                    mostrar_resumen()
-                    sys.exit()
+                    print("Se acabaron los intentos.")
+                    break
 
     else:
-        #Fer V - Universidad
-        print("Nivel de dificultad: UNIVERSIDAD")
+        print("Universidad")
         intentos = 3
 
         while True:
@@ -173,7 +169,7 @@ while True:
                 pregunta = f"∫x^{exp}dx = x^{denIntegral}/? + C"
                 print(f"\n{pregunta}")
                 inicio = time.time()
-                result = float(input("Escribe el denominador: "))
+                result = float(input("Denominador: "))
                 correct = float(denIntegral)
             else:
                 a = random.randint(1, 8)
@@ -181,17 +177,18 @@ while True:
                 pregunta = f"lim x→{a} de (x² - {a**2}) / (x - {a})"
                 print(f"\n{pregunta}")
                 inicio = time.time()
-                result = float(input("Indique el resultado\n"))
+                result = float(input(""))
 
-            registrar_tiempo(pregunta, inicio)
+            elapsed = round(time.time() - inicio, 2)
+            tiempo.append((pregunta, elapsed))
+            print(f"Tiempo: {elapsed}s")
 
             if result == correct:
                 print("¡Correcto!")
-                puntos += 1
+                pts += 1
             else:
                 intentos -= 1
                 print(f"¡INCORRECTO! La respuesta era {correct}. Te quedan {intentos} intento(s).")
                 if intentos == 0:
-                    print("GAME OVER.")
-                    mostrar_resumen()
-                    sys.exit()
+                    print("Se acabaron los intentos.")
+                    break
